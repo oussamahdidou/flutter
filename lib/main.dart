@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/add_diary_screen.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
+import 'package:flutter_application_1/screens/note_screen.dart';
 import 'package:flutter_application_1/screens/old_diaries_screen.dart';
 // import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeScreen(),
         '/old_diaries': (context) => const OldDiariesScreen(),
-        '/add_diary': (context) => const AddDiaryScreen(),
+        '/notes': (context) => ConversationPage(),
       },
     );
   }

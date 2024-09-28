@@ -33,6 +33,15 @@ class HomeScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/add_diary');
             }, // Background color for this button
           ),
+          SpeedDialChild(
+            child: const Icon(Icons.add), // Icon for "Add New Diary"
+            label: 'Notes', // Text label for the button
+            backgroundColor: const Color.fromARGB(255, 153, 172, 235),
+            shape: const CircleBorder(),
+            onTap: () {
+              Navigator.pushNamed(context, '/notes');
+            }, // Background color for this button
+          ),
         ],
       ),
     );
