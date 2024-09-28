@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/add_diary_screen.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
+import 'package:flutter_application_1/screens/note_screen.dart';
+import 'package:flutter_application_1/screens/notes_list_screen.dart';
 import 'package:flutter_application_1/screens/old_diaries_screen.dart';
 
 void main() {
@@ -49,8 +51,8 @@ class _MainScreenState extends State<MainScreen> {
         },
         children: const [
           HomeScreen(),
-          OldDiariesScreen(),
-          AddDiaryScreen(),
+          NotesListPage(),
+          ConversationPage(),
         ],
       ),
       bottomNavigationBar: ClipPath(
