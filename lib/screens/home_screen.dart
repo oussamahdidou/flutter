@@ -69,7 +69,6 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color.fromARGB(255, 28, 118, 235),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 28, 118, 235),
-        title: const Text('Home Screen'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

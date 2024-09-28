@@ -13,31 +13,31 @@ class NotesListPage extends StatelessWidget {
         "text": "Note 1: Flutter is amazing!",
         "color": Colors.blueAccent,
         "date": DateTime.now(),
-        "emoji": "🚀"
+        "emoji": "😢"
       },
       {
         "text": "Note 2: Don't forget to submit the assignment.",
-        "color": Colors.greenAccent,
+        "color": Colors.blueAccent,
         "date": DateTime.now().add(Duration(days: 1)),
-        "emoji": "📝"
+        "emoji": "😢"
       },
       {
         "text": "Note 3: Meeting at 3 PM tomorrow.",
-        "color": Colors.orangeAccent,
+        "color": Colors.blueAccent,
         "date": DateTime.now().add(Duration(days: 2)),
-        "emoji": "📅"
+        "emoji": "😢"
       },
       {
         "text": "Note 4: Buy groceries after work.",
-        "color": Colors.pinkAccent,
+        "color": Colors.blueAccent,
         "date": DateTime.now().add(Duration(days: 3)),
-        "emoji": "🛒"
+        "emoji": "😢"
       },
       {
         "text": "Note 5: Call Mom.",
-        "color": Colors.yellowAccent,
+        "color": Colors.blueAccent,
         "date": DateTime.now().add(Duration(days: 4)),
-        "emoji": "📞"
+        "emoji": "😢"
       },
     ];
 

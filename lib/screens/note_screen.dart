@@ -51,27 +51,15 @@ class _ConversationPageState extends State<ConversationPage> {
   }
 
   Future<void> _startRecording() async {
-    if (await _record.hasPermission()) {
-      setState(() {
-        _isRecording = true;
-      });
+    setState(() {
+      _isRecording = true;
+    });
 
-      // Start recording and display waveform
-      await _record.start(const RecordConfig(), path: 'aFullPath/myFile.m4a');
-      _recorderController.record();
-    }
+    // Start recording and display waveform
+    // await _record.start(const RecordConfig(), path: 'aFullPath/myFile.m4a');
   }
 
   Future<void> _stopRecording() async {
-    String? path = await _record.stop();
-    final pathc =
-        await _recorderController.stop(); // Stop recording and get the path
-    _recorderController.refresh(); // Refresh waveform to original position
-    _recorderController.dispose();
-    if (path != null) {
-      _sendMessage(
-          message: "[Voice Message]", isVoiceMessage: true, voicePath: path);
-    }
     setState(() {
       _isRecording = false;
     });
@@ -97,8 +85,7 @@ class _ConversationPageState extends State<ConversationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('WhatsApp-like Conversation'),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 28, 118, 235),
       ),
       body: Column(
         children: [
@@ -119,7 +106,6 @@ class _ConversationPageState extends State<ConversationPage> {
             ),
           ),
           _buildMessageInput(),
-          if (_isRecording) _buildAudioWaveform(),
         ],
       ),
     );
@@ -139,7 +125,7 @@ class _ConversationPageState extends State<ConversationPage> {
         margin: const EdgeInsets.all(8.0),
         padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-          color: isSender ? Colors.green.shade200 : Colors.grey.shade300,
+          color: const Color.fromARGB(255, 28, 118, 235),
           borderRadius: BorderRadius.only(
             topLeft: const Radius.circular(15),
             topRight: const Radius.circular(15),
@@ -159,14 +145,17 @@ class _ConversationPageState extends State<ConversationPage> {
                   )
                 : Text(
                     message,
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 255, 255, 255)),
                   ),
             SizedBox(height: 5),
             Align(
               alignment: Alignment.bottomRight,
               child: Text(
                 time,
-                style: const TextStyle(fontSize: 12, color: Colors.black54),
+                style: const TextStyle(
+                    fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
               ),
             ),
           ],
@@ -192,7 +181,10 @@ class _ConversationPageState extends State<ConversationPage> {
           ),
           // Send text message button
           IconButton(
-            icon: const Icon(Icons.send, color: Colors.green),
+            icon: const Icon(
+              Icons.send,
+              color: Color.fromARGB(255, 28, 118, 235),
+            ),
             onPressed: () => _sendMessage(
               message: _messageController.text,
               isVoiceMessage: false,
@@ -202,25 +194,13 @@ class _ConversationPageState extends State<ConversationPage> {
           IconButton(
             icon: Icon(
               _isRecording ? Icons.stop : Icons.mic,
-              color: _isRecording ? Colors.red : Colors.black,
+              color: _isRecording
+                  ? Colors.red
+                  : const Color.fromARGB(255, 28, 118, 235),
             ),
             onPressed: _isRecording ? _stopRecording : _startRecording,
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildAudioWaveform() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: AudioWaveforms(
-        size: Size(double.infinity, 100.0),
-        recorderController: _recorderController,
-        waveStyle: WaveStyle(
-          waveColor: Colors.blue,
-          showMiddleLine: false,
-        ),
       ),
     );
   }
