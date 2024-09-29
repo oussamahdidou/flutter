@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/add_diary_screen.dart';
+import 'package:flutter_application_1/screens/add_user.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
 import 'package:flutter_application_1/screens/note_screen.dart';
 import 'package:flutter_application_1/screens/notes_list_screen.dart';
-import 'package:flutter_application_1/screens/old_diaries_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,10 +48,11 @@ class _MainScreenState extends State<MainScreen> {
             _currentIndex = index;
           });
         },
-        children: const [
-          HomeScreen(),
-          NotesListPage(),
-          ConversationPage(),
+        children: [
+          const HomeScreen(),
+          const NotesListPage(),
+          const ConversationPage(),
+          UserFormScreen(),
         ],
       ),
       bottomNavigationBar: ClipPath(
@@ -70,6 +70,10 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.add),
               label: 'Add Diary',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'User Data',
             ),
           ],
           currentIndex: _currentIndex,

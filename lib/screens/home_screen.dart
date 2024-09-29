@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     DateTime.utc(2024, 9, 11): '😢',
     DateTime.utc(2024, 9, 12): '😢',
     DateTime.utc(2024, 9, 13): '😢',
+    DateTime.utc(2024, 9, 14): '😢',
     DateTime.utc(2024, 9, 15): '😢',
     DateTime.utc(2024, 9, 16): '😢',
     DateTime.utc(2024, 9, 17): '😢',
